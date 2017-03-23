@@ -20,7 +20,6 @@ var postOptions = {
   host: 'api.hivoice.cn',
   port: 80,
   path: '/USCService/WebApi?userid=' + appid + '&appkey=' + appKey + '&id=' + Date.now(),
-  //path: '/USCService/WebApi?userid=18601612299&appkey=kxrq72fl7zrrb5eb4dv4vrdgwsvmgvd3zsdu4zau&id=10013231',
   headers: {
     'Content-Type': 'audio/x-wav;codec=pcm;bit=16;rate=16000',
     'Accept': 'text/plain',
