@@ -30,7 +30,6 @@
         <appender-ref ref="Console"/>
     </root>
 
-
     <logger name="org.coding4life" level="debug">
         <appender-ref ref="DB" />
     </logger>
