@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: spring-config-demo
+  cloud:
+    config:
+      bootstrap: false
+    consul:
+      config:
+        enabled: true
