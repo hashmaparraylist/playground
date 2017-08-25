@@ -1,9 +1,9 @@
 {
-  "name": "node-voice",
+  "name": "amqp",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "request": "^2.81.0"
+    "amqplib": "^0.5.1"
   }
 }

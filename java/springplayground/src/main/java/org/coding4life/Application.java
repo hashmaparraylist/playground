@@ -1,24 +1,31 @@
 package org.coding4life;
 
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.context.annotation.Profile;
 
 @SpringBootApplication
-@EnableDiscoveryClient
-@EnableCircuitBreaker
 public class Application {
-    public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+
+    @Profile("!usage_message")
+    @Bean
+    public CommandLineRunner tutorial() {
+        return null;
     }
 
-    @Bean
-    @LoadBalanced
-    public RestTemplate restTemplate() {
-        return new RestTemplate();
+    public CommandLineRunner usage() {
+        return new CommandLineRunner() {
+            @Override
+            public void run(String... strings) throws Exception {
+                System.out.println("This app uses Spring Profiles to control its behavior.\n");
+                System.out.println("Sample usage: java -jar rabbit-tutorials.jar --spring.profiles.active=hello-world,sender");
+            }
+        };
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
     }
 }
